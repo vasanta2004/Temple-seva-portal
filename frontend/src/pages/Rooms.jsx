@@ -441,7 +441,7 @@ const Rooms = () => {
             status: 'CONFIRMED'
           };
 
-          axios.post('http://localhost:8080/api/rooms/book', bookingData, { headers: authHeader() })
+          axios.post('https://temple-seva-portal-1.onrender.com/api/rooms/book', bookingData, { headers: authHeader() })
             .then(res => {
               console.log("Booking recorded successfully in backend ledger", res.data);
               setShowUPIModal(false);

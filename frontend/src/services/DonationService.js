@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './authHeader';
 
-const API_URL = 'http://localhost:8080/api/donations/';
+const API_URL = 'https://temple-seva-portal-1.onrender.com/api/donations/';
 
 const getAllDonations = () => {
   return axios.get(API_URL + 'all', { headers: authHeader() });

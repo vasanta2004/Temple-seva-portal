@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './authHeader';
 
-const API_URL = 'http://localhost:8080/api/events/';
+const API_URL = 'https://temple-seva-portal-1.onrender.com/api/events/';
 
 const getActiveEvents = () => {
   return axios.get(API_URL + 'active');

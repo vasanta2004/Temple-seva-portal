@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './authHeader';
 
-const API_URL = 'http://localhost:8080/api/orders';
+const API_URL = 'https://temple-seva-portal-1.onrender.com/api/orders';
 
 class PrasadService {
   createOrder(orderData) {

@@ -75,7 +75,7 @@ const Schedule = () => {
       totalAmount: selectedPooja.price
     };
 
-    axios.post('http://localhost:8080/api/bookings/book', bookingData, { headers: authHeader() })
+    axios.post('https://temple-seva-portal-1.onrender.com/api/bookings/book', bookingData, { headers: authHeader() })
       .then(res => console.log("Daily Pooja booking recorded", res.data))
       .catch(err => console.error("Failed to post daily pooja booking", err));
 

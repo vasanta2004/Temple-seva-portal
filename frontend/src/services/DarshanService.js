@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './authHeader';
 
-const API_URL = 'http://localhost:8080/api/darshan';
+const API_URL = 'https://temple-seva-portal-1.onrender.com/api/darshan';
 
 const getAvailability = (date, slot) => {
   return axios.get(`${API_URL}/availability`, {

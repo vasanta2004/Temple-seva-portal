@@ -209,7 +209,7 @@ const Sevas = () => {
       totalAmount: cart.reduce((sum, item) => sum + item.price, 0)
     };
 
-    axios.post('http://localhost:8080/api/bookings/book', bookingData, { headers: authHeader() })
+    axios.post('https://temple-seva-portal-1.onrender.com/api/bookings/book', bookingData, { headers: authHeader() })
       .then(res => {
         console.log("Seva booking successfully synced with server and email sent", res.data);
       })
