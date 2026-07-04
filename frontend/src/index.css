@@ -1,0 +1,440 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@100;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+@theme {
+  --color-primary: #1A237E; /* Deep Indigo */
+  --color-secondary: #D4AF37; /* Gold */
+  --color-surface: #0F1115; /* Deep Slate Gray */
+  --color-accent: #D4AF37;
+  --color-highlight: #5C6BC0; /* Luminous Indigo */
+
+  --font-serif: "Cinzel", serif;
+  --font-body: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
+
+  --animate-luminous: glow-pulse 3s ease-in-out infinite;
+  
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); }
+    50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); }
+  }
+}
+
+:root {
+  --primary: #1A237E;
+  --secondary: #D4AF37;
+  --highlight: #5C6BC0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: #E2E8F0;
+  overflow-x: hidden;
+}
+
+/* Modern Floating Navbar */
+.navbar-modern {
+  background: transparent;
+  backdrop-filter: none;
+  border: 1px solid transparent;
+  box-shadow: none;
+  border-radius: 5rem;
+}
+
+.nav-link-modern {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px var(--color-secondary);
+}
+
+.card-luminous {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-luminous:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(212, 122, 42, 0.12);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.btn-luminous {
+  background: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
+  color: white;
+  box-shadow: 0 10px 20px rgba(26, 35, 126, 0.2);
+  transition: all 0.3s ease;
+  font-weight: 900;
+}
+
+.btn-luminous:hover {
+  box-shadow: 0 15px 30px rgba(26, 35, 126, 0.4);
+  transform: scale(1.05);
+}
+
+.text-luminous-gold {
+  color: #D4AF37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* Texture & Depth */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.gradient-mesh {
+  background: radial-gradient(at 0% 0%, rgba(26, 35, 126, 0.05) 0, transparent 50%),
+              radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.05) 0, transparent 50%);
+}
+
+/* Typography Overrides */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--color-secondary);
+  border-radius: 2px;
+}
+
+/* Glass Prism Effect */
+.glass-prism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-prism::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    transparent 0deg,
+    rgba(212, 175, 55, 0.1) 90deg,
+    transparent 180deg,
+    rgba(26, 35, 126, 0.1) 270deg,
+    transparent 360deg
+  );
+  animation: prism-rotate 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes prism-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Divine Glow icon style */
+.divine-glow {
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+  animation: divine-pulse 4s ease-in-out infinite;
+}
+
+.hover-divine-glow:hover {
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+  animation: divine-pulse 2s ease-in-out infinite;
+}
+
+@keyframes divine-pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8)); }
+}
+
+/* Luxury Text Gradient - High Contrast */
+.text-luxury {
+  background: linear-gradient(135deg, #D4AF37 0%, #FFFFFF 50%, #D4AF37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Ensure text visibility on cards */
+.text-card-muted {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.text-card-title {
+  color: #FFFFFF;
+}
+
+.text-primary-dark {
+  color: #1A237E;
+}
+
+.text-secondary-gold {
+  color: #D4AF37;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* Floating Animation */
+.float-luxury {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Word-Level Micro Animations */
+.word-glow-hover {
+  transition: text-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.4s ease;
+}
+
+.word-glow-hover:hover {
+  color: #FFFFFF;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.9), 0 0 30px rgba(212, 175, 55, 0.4);
+}
+
+.word-bounce-hover {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.word-bounce-hover:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+.word-reveal-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.word-reveal-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  transform-origin: bottom center;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.word-reveal-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Rapid Golden Shimmer Effect */
+.text-shimmer {
+  background: linear-gradient(90deg, #D4AF37 0%, #FFF 25%, #D4AF37 50%, #FFF 75%, #D4AF37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-anim 3s linear infinite;
+}
+
+@keyframes shimmer-anim {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* 🔔 Swinging Temple Bell Animation */
+@keyframes bellSwing {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(10deg); }
+  40% { transform: rotate(-8deg); }
+  60% { transform: rotate(6deg); }
+  80% { transform: rotate(-4deg); }
+}
+.bell-swing {
+  transform-origin: top center;
+  animation: bellSwing 5s ease-in-out infinite;
+  transition: filter 0.3s ease;
+}
+.bell-swing:hover {
+  animation: bellSwing 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.85));
+}
+
+/* 🪔 Diya Flame Flicker Animation */
+@keyframes diyaFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    filter: drop-shadow(0 0 4px rgba(255, 140, 0, 0.7)) blur(0.2px);
+  }
+  50% {
+    transform: scale(1.15) rotate(2deg) translateY(-1px);
+    filter: drop-shadow(0 0 14px rgba(255, 69, 0, 0.95)) blur(0.8px);
+  }
+}
+.diya-flame {
+  animation: diyaFlicker 0.22s infinite alternate ease-in-out;
+}
+
+/* ⚜️ Luxury Gold-Leaf Double Borders */
+.border-gold-leaf {
+  position: relative;
+}
+.border-gold-leaf::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-image: linear-gradient(135deg, rgba(212,175,55,0.45) 0%, rgba(212,175,55,0.05) 50%, rgba(212,175,55,0.45) 100%) 1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* 📊 Devotional Background Music Frequency Visualizer */
+@keyframes barRise {
+  0%, 100% { height: 4px; }
+  50% { height: 26px; }
+}
+.bar-active {
+  animation: barRise 1.2s ease-in-out infinite;
+}
+
+/* Accessibility Font Scaling */
+html {
+  transition: font-size 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.font-size-medium {
+  font-size: 21px;
+}
+
+html.font-size-large {
+  font-size: 26px;
+}
+
+html.font-size-xlarge {
+  font-size: 31px;
+}
+
+/* Redefine small Tailwind utility classes using rem so they scale with root font-size */
+.text-xs {
+  font-size: 0.95rem !important;
+}
+.text-sm {
+  font-size: 1.05rem !important;
+}
+.text-\[7px\] {
+  font-size: 0.75rem !important;
+}
+.text-\[8px\] {
+  font-size: 0.8rem !important;
+}
+.text-\[9px\] {
+  font-size: 0.85rem !important;
+}
+.text-\[9\.5px\] {
+  font-size: 0.88rem !important;
+}
+.text-\[10px\] {
+  font-size: 0.92rem !important;
+}
+.text-\[11px\] {
+  font-size: 0.98rem !important;
+}
+.text-\[12px\] {
+  font-size: 1.02rem !important;
+}
+.text-\[13px\] {
+  font-size: 1.06rem !important;
+}
+.text-\[14px\] {
+  font-size: 1.1rem !important;
+}
+
+/* Gentle continuous float animation for idle cards */
+.card-float-idle {
+  animation: float-idle 5s ease-in-out infinite;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease, border-color 0.6s ease !important;
+}
+
+@keyframes float-idle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Pause floating animation and lift higher with gold glow when hovered */
+.card-float-idle:hover {
+  animation-play-state: paused !important;
+  transform: translateY(-18px) !important;
+  box-shadow: 0 30px 60px rgba(212, 175, 55, 0.16) !important;
+  border-color: rgba(212, 175, 55, 0.45) !important;
+}
+
+
+
+
+
+/* Admin Dashboard Theme Variables */
+.admin-dashboard {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.admin-dashboard.theme-dark {
+  --admin-bg: #040306;
+  --admin-text: #ffffff;
+  --admin-text-muted: #9ca3af; /* gray-400 */
+  --admin-card-bg: rgba(255, 255, 255, 0.03);
+  --admin-border: rgba(255, 255, 255, 0.1);
+  --admin-border-focus: rgba(255, 255, 255, 0.2);
+  --admin-sidebar: rgba(7, 5, 11, 0.45);
+  --admin-input-bg: rgba(255, 255, 255, 0.02);
+  --admin-hover-bg: rgba(255, 255, 255, 0.04);
+}
+
+.admin-dashboard.theme-light {
+  --admin-bg: #FAFAFA;
+  --admin-text: #1F2937; /* gray-800 */
+  --admin-text-muted: #6B7280; /* gray-500 */
+  --admin-card-bg: #FFFFFF;
+  --admin-border: #E5E7EB; /* gray-200 */
+  --admin-border-focus: #D1D5DB; /* gray-300 */
+  --admin-sidebar: rgba(255, 255, 255, 0.85);
+  --admin-input-bg: #F3F4F6; /* gray-100 */
+  --admin-hover-bg: #F9FAFB; /* gray-50 */
+}
